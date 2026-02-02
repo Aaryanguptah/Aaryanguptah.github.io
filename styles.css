@@ -17,7 +17,10 @@ html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Seg
 .nav a:hover{opacity:1}
 .nav-toggle{display:none;background:transparent;border:0;color:var(--text);font-size:20px}
 .site-header{backdrop-filter: blur(6px);border-bottom:1px solid rgba(255,255,255,0.03)}
-.hero{padding:80px 0;text-align:center}
+.hero{padding:84px 0 150px;text-align:center}
+.hero--bg{position:relative;overflow:hidden;background:url("AaryanImgCernAsthetic.jpeg") center 62%/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg, rgba(7,16,38,0.72) 5%, rgba(7,16,38,0.84) 65%)}
+.hero-content{position:relative;z-index:1}
 .hero .lead{color:var(--muted);margin-top:8px}
 .page-hero{padding:48px 0 24px}
 .section{padding:48px 0}
@@ -31,6 +34,8 @@ html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Seg
 .timeline{display:grid;gap:16px}
 .timeline-item{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
 .timeline-date{color:var(--muted);white-space:nowrap}
+.timeline-date--with-logo{display:inline-flex;align-items:center;gap:8px}
+.kellogg-logo{width:28px;height:28px;object-fit:contain;border-radius:4px}
 .pill-grid{display:flex;flex-wrap:wrap;gap:10px}
 .pill{background:rgba(255,255,255,0.06);border-radius:999px;padding:6px 12px;font-size:0.9rem}
 .site-footer{padding:24px 0;border-top:1px solid rgba(255,255,255,0.03);text-align:center;color:var(--muted)}
@@ -39,9 +44,23 @@ html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Seg
 
 .link-list{list-style:none;padding:0;margin:0;display:grid;gap:8px}
 
+.photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:28px}
+.photo-card{min-height:220px;border-radius:14px;overflow:hidden;position:relative;background-color:rgba(255,255,255,0.04);background-position:center;background-size:cover;background-repeat:no-repeat;box-shadow:0 16px 34px rgba(0,0,0,0.3)}
+.photo-card:hover{transform:translateY(-2px);box-shadow:0 20px 38px rgba(0,0,0,0.36)}
+.photo-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(2,6,23,0) 35%, rgba(2,6,23,0.82) 100%)}
+.photo-card-hitarea{position:absolute;inset:0;z-index:2;text-decoration:none}
+.photo-card-hitarea:focus{outline:2px solid var(--accent);outline-offset:-3px}
+.photo-card-overlay{position:absolute;left:14px;right:14px;bottom:12px;z-index:1;text-align:left}
+.photo-card-overlay h3{margin:0 0 6px 0;font-size:1.05rem}
+.photo-card-overlay p{margin:0;color:#d1d8e4;font-size:0.92rem}
+.photo-card-2{background-image:url("AaryanSpeaker1.jpeg")}
+.photo-card-3{background-image:url("AaryanSpeaker2.jpeg")}
+.photo-card-5{background-image:url("aaryanClubMah.jpeg")}
+
 /* Responsive */
 @media (max-width:900px){
   .grid{grid-template-columns:repeat(2,1fr)}
+  .photo-grid{grid-template-columns:1fr 1fr}
 }
 @media (max-width:640px){
   .grid{grid-template-columns:1fr}
@@ -49,7 +68,10 @@ html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Seg
   .nav.is-open{display:flex;flex-direction:column;gap:8px}
   .nav-toggle{display:block}
   .header-inner{gap:8px}
-  .hero{padding:48px 0}
+  .hero{padding:52px 0 96px}
+  .photo-grid{grid-template-columns:1fr}
+  .photo-card{min-height:190px}
+  .timeline-item{flex-direction:column}
 }
 
 /* small utilities */
